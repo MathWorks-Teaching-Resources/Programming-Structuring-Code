@@ -62,6 +62,10 @@ In this script, students will...
 - clone a GitHub repository.
 - use the Compare tool to see differences between two versions of the same live script.
 
+## Related Courseware Modules ##
+- **Fundamentals of Programming** on [GitHub](https://github.com/MathWorks-Teaching-Resources/Fundamentals-of-Programming) or [![View <File Exchange Title> on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/103225-fundamentals-of-programming)
+- **Programming: Organizing Data** on [GitHub](https://github.com/MathWorks-Teaching-Resources/Programming-Organizing-Data) or [![View <File Exchange Title> on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/115900-programming-organizing-data)
+
 ## Products ##
 MATLAB&reg;
 
