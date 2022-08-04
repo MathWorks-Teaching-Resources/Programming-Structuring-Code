@@ -1,4 +1,4 @@
-# Programming: Structuring Code [![View <File Exchange Title> on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/XXXX)
+# Programming: Structuring Code [![View <File Exchange Title> on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/115905-programming-structuring-code)
 **Curriculum Module**  
 _Created with R2021b. Compatible with R2021b and later releases._ 
 
