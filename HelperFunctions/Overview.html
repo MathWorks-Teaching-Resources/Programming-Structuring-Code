@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Programming: Organizing Data</title><meta name="generator" content="MATLAB 9.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-08-05"><meta name="DC.source" content="Overview.m"><style type="text/css">
+      --><title>Programming: Structuring Code</title><meta name="generator" content="MATLAB 9.13"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-08-08"><meta name="DC.source" content="Overview.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,332 +67,289 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Programming: Organizing Data</h1><p>
-<span style="font-family:Arial">
-<span style="font-size:12pt">
-<h2> Information </h2>
-This curriculum module contains interactive
-<a href="https://www.mathworks.com/products/matlab/live-editor.html">MATLAB&reg; live scripts</a>
-that teach fundamental concepts and basic terminology related to
-programming computers. This module focuses on concepts and practices
-related to working with data.
-<br>
-<br>
-<a href=#module>Programming: Organizing Data</a> covers
-<a href=#strings>textual</a> data,
-<a href=#num>numerical</a> data, <a href=#memory>memory</a>, and
-<a href=#data>data structures</a> including, arrays, structs, tables, and more.
-Applications include sea surface temperature data and solar power generation data.
-<br>
-<br>
-You can use these live scripts as demonstrations in lectures, class activities,
-or interactive assignments outside of class. The module is divided into
-four scripts organized by topic: textual data types, numeric data types, memory, and
-storing data.
-<br>
-<br>
-The instructions inside the live scripts will guide you through the exercises and activities.
-Get started with each live script by running it one section at a time. To stop running the script
-or a section midway (for example, when an animation is in progress), use the <img src="https://user-images.githubusercontent.com/88841524/182219991-17ef7bf9-369b-4463-8de6-9e440ca3bc9b.png" height="16" style="vertical-align:top"> Stop button in the
-RUN section of the Live Editor tab in the MATLAB Toolstrip.
-<br>
-<br>
-Solutions are available upon instructor request. If you would like to request solutions or have a question, contact the
-<a href="mailto:onlineteaching@mathworks.com">MathWorks online teaching team</a>.
-<br>
-<br>
-<h2> Related Courseware Modules </h2>
-<ul>
-    <li> <b>Fundamentals of Programming</b> available on <a href="https://github.com/MathWorks-Teaching-Resources/Fundamentals-of-Programming">
+  </style></head><body><div class="content"><h1>Programming: Structuring Code</h1><p>
+    <span style="font-family:Arial">
+        <span style="font-size:12pt">
+            <h2> Information </h2>
+            This curriculum module contains interactive
+            <a href="https://www.mathworks.com/products/matlab/live-editor.html">MATLAB&reg; live scripts</a>
+            that teach fundamental concepts and basic terminology related to
+            programming computers. This module focuses on organizing code into
+            functions, describing, debugging, and sharing code.
+            <br>
+            <br>
+            <a href=#module>Programming: Structuring Code</a> covers
+            <a href=#functions>functions</a>, adding
+            <a href=#comments>comments</a> to code, <a href=#debugging>debugging</a>, and
+            <a href=#sharing>sharing</a> code.
+            <br>
+            <br>
+            You can use these live scripts as lecture demonstrations, class activities,
+            or interactive assignments outside class. The module is divided into
+            four scripts organized by topic: functions, comments, debugging, and
+            sharing code.
+            <br>
+            <br>
+            The instructions inside the live scripts will guide you through the exercises and activities.
+            Get started with each live script by running it one section at a time. To stop running the script
+            or a section midway (for example, when an animation is in progress), use the <img src="https://user-images.githubusercontent.com/88841524/182219991-17ef7bf9-369b-4463-8de6-9e440ca3bc9b.png" height="16" style="vertical-align:top"> Stop button in the
+            RUN section of the Live Editor tab in the MATLAB Toolstrip.
+            <br>
+            <br>
+            If you find an issue or have a suggestion, email the MathWorks online teaching team at
+            <a
+               href="mailto:onlineteaching@mathworks.com">onlineteaching@mathworks.com</a>.
+            <br>
+            <br>
+            <h2> Prerequisites </h2>
+            These scripts assume familiarity with MATLAB and general programming knowledge
+            at the level covered in the <a href="https://github.com/MathWorks-Teaching-Resources/Fundamentals-of-Programming">
+            Fundamentals of Programming</a> interactive examples. The familiarity with MATLAB could
+            also be acquired in <a href="https://www.mathworks.com/learn/tutorials/matlab-onramp.html">MATLAB
+            Onramp</a>.
+            <br>
+            <br>
+            <h2> Related Courseware Modules </h2>
+            <ul>
+                <li> <b>Fundamentals of Programming</b> available on <a href="https://github.com/MathWorks-Teaching-Resources/Fundamentals-of-Programming">
         GitHub</a> or <a href="https://www.mathworks.com/matlabcentral/fileexchange/103225-fundamentals-of-programming">
              <img src="https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg">
              </a>
-    <li><b>Programming: Structuring Code</b> available on <a href="https://github.com/MathWorks-Teaching-Resources/Programming-Structuring-Code">
-             GitHub </a> or <a href="https://www.mathworks.com/matlabcentral/fileexchange/115905-programming-structuring-code">
-             <img src="https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg">
+                <li> <b>Programming: Organizing Data</b> available on <a
+                href="https://github.com/MathWorks-Teaching-Resources/Programming-Organizing-Data">
+                GitHub </a> or <a href
+                ="https://www.mathworks.com/matlabcentral/fileexchange/115900-programming-organizing-data"><img
+                src="https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg">
              </a>
-</ul>
-<h2> Prerequisites </h2>
-These scripts assume familiarity with MATLAB and general programming knowledge
-at the level covered in the <a href="https://www.mathworks.com/matlabcentral/fileexchange/103225-fundamentals-of-programming">
-Fundamentals of Programming</a> interactive examples. You could also use <a href="https://www.mathworks.com/learn/tutorials/matlab-onramp.html">MATLAB
-Onramp</a> as another resource to acquire familiarity with MATLAB.
-<br>
-<br>
-<h2> Getting Started </h2>
-<ol>
-    <li>
-        Ensure you have all the required products (listed below)
-        installed. If you are missing a product, add it using the
-        <a href="https://www.mathworks.com/products/matlab/add-on-explorer.html">
-            Add-On Explorer.</a> To install an add-on, go to the <b>Home</b>
-        tab and select <img src="https://user-images.githubusercontent.com/88841524/183099525-626986bc-328a-4e3a-8e5b-c1d0691ca291.png" style="margin:0px;" height=12> <b> Add-Ons > Get Add-Ons</b>.
-    </li>
-        <li>
-            Get started with each topic by clicking the link in the first column of the table below to access the
-            full script example. The instructions inside each live script will walk
-            you through the live scripts and related functions.
-        </li>
-</ol>
-<h2> Products </h2>
-    MATLAB&reg; is used throughout. Tools from the Mapping Toolbox&trade;
-    are used in <code>StoringData.mlx</code>,
-    and tools from the Symbolic Math Toolbox&trade; are used in <code>Strings.mlx</code>.
-<br>
-<br>
-<h2> <a name="module"; href="matlab: edit StoringData.mlx Memory.mlx Strings.mlx NumericDataTypes.mlx">Scripts</a> </h2>
-<table border=1 style="margin-left:20px; cellpadding:15px;">
-    <caption><h3>Organization of the Programming: Organizing Data Module</h3></caption>
-    <tr>
-        <th scope="col">Topic
-        </th>
-        <th scope="col">In this script, students will...
-        </th>
-    </tr>
-    <tr>
-        <th scope="row">
-            <a name="strings"; href="matlab:edit Strings.mlx;"><b>Textual Data Types</b>
-             <br>
-            <img src="https://user-images.githubusercontent.com/88841524/183101267-371312e2-22a9-44bb-9e5c-f72ebe13af21.png" width=150 style="margin-top:5px; margin-bottom:0px">
-            </a>
-        </th>
-        <td>
-            <ul style="margin-top:5px; margin-bottom:10px">
-                <li> investigate the relationship between character arrays and Unicode values. </li>
-                <li> try building two-dimensional character arrays and string arrays. </li>
-                <li> format strings by concatenating,
-                    modifying capitalization, reordering characters, extracting or replacing substrings, or
-                    formatting textual data from numerical data.</li>
-                <li> extract the month from a regularly-formatted but randomly
-                    generated sentence. </li>
             </ul>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">
-            <a name="num"; href="matlab:edit NumericDataTypes.mlx;"><b>Numeric Data Types</b><br>
-            <img src="https://user-images.githubusercontent.com/88841524/174635054-4fbe3c75-f719-4470-a8c6-7c49ea23d8e4.png" width=125 style="margin-top:5px; margin-bottom:0px"></a>
-            </th>
-        <td>
-            <ul style="margin-top:5px; margin-bottom:10px">
-                <li> create an example illustrating the differences between floating point
-                    arithmetic and symbolic arithmetic.</li>
-                <li> explore the results of mathematical operations involving mixed numeric data types. </li>
-                <li> identify the possible values of a 32-bit unsigned
-                    integer.</li>
-                <li> use documentation to discover how to perform mathematical
-                    computations in MATLAB. </li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">
-            <a name="memory"; href="matlab:edit Memory.mlx;"><b>Memory</b><br>
-            <img src="https://user-images.githubusercontent.com/88841524/174635161-981abbce-d712-4fc5-b950-4d2bef4fed17.png" width=125 style="margin-top:5px; margin-bottom:0px">
-            </a>
-        </th>
-        <td>
-            <ul style="margin-top:5px; margin-bottom:10px">
-                <li> determine how many bytes are required to store different integer
-                    values. </li>
-                <li> compare the results of computation organized in memory-efficient and memory-inefficient ways. </li>
-                <li> apply understanding of memory to recognize efficient computational patterns such as pre-allocation. </li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">
-            <a name="data"; href="matlab:edit StoringData.mlx;"><b>Data Structures</b><br>
-            <img src="https://user-images.githubusercontent.com/88841524/174635148-825bb0a6-f6f0-4ca1-bfb1-9b1ec522c64b.png" width=125 style="margin-top:5px; margin-bottom:0px"> </a>
-            </th>
-        <td>
-            <ul style="margin-top:5px; margin-bottom:10px">
-                <li> read metadata to understand a dataset. </li>
-                <li> use arrays to store multidimensional data of the same type and access individual elements or sub-arrays using dimensional,
-                    logical or linear indexing. </li>
-                <li> use tables to store linked sets of different types of data such as key/value sets and extract information as
-                    tables, single variable arrays, or concatenated variable arrays.</li>
-                <li> use structure arrays to store linked data of
-                    different types and sizes and use dot
-                    notation to access fields within a structure array or
-                    variables within a table.</li>
-                <li> recognize cell arrays and extract the data to other data structures. </li>
-                <li> clean data by interpolating missing values. </li>
-                <li> answer questions by analyzing data. </li>
-                <li> convert data between types and structures. </li>
-            </ul>
-        </td>
-    </tr>
-</table>
-<br>
-</span>
-</span>
-</p><p>Copyright 2022 The MathWorks&#8482;, Inc.</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022a</a><br></p></div><!--
+            <h2> Getting Started </h2>
+            <ol>
+                <li>
+                    Get started with each topic by clicking the link in the first column of the table below to access the
+                    full script example.  </li>
+                <li>The instructions inside each live script will walk
+                    you through the live scripts and related functions.
+                </li>
+            </ol>
+            <h2> Products </h2>
+            MATLAB&reg;
+            <br>
+            <br>
+            <h2> <a name="module"; style = "text-decoration: none; color: inherit">Scripts</a> </h2>
+            <table border=1 style="margin-left:20px; cellpadding:15px;">
+                <caption><h3>Organization of the Programming: Structuring Code Module</h3></caption>
+                <tr>
+                    <th scope="col"><a name="fullscripts"></a>Topic</th>
+                    <th scope="col"> In this script, students will... </th>
+                </tr>
+                <tr>
+                    <th scope="row" style="text-align: center;">
+                        <a name="functions"; href="matlab:edit
+                                                   Functions.mlx;"><b>Functions</b> <br><br>
+                            <img src="https://user-images.githubusercontent.com/88841524/182221128-9bc17fa0-a5c7-46eb-b7b5-c4ea0c770904.png" width="100"> </a>
+                    </th>
+                        <td>
+                            <ul style="margin-top:5px; margin-bottom:10px">
+                                <li> use mathematical functions to use MATLAB as a calculator. </li>
+                                <li> use the documentation to locate functions and determine how to use
+                                    them.</li>
+                                <li> write simple functions with inputs, outputs, and side effects, and ensure the functions are on your MATLAB path.</li>
+                                <li> pass functions as arguments by using function handles. </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="text-align: center;">
+                            <a name="comments"; href="matlab:edit
+                                                      CommentingCode.mlx;"><b>Commenting and Documenting Code</b><br><br>
+                                <img src="https://user-images.githubusercontent.com/88841524/182221375-2b18b9ca-75cb-4d39-8f4a-36877be20574.png" width="100"> </a>
+                        </th>
+                            <td>
+                                <ul style="margin-top:5px; margin-bottom:10px">
+                                    <li> write comments and documentation for a self-defined function.</li>
+                                    <li> select meaningful variable names and add code and
+                                        documentation to an existing function.</li>
+                                </ul>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="text-align: center;">
+                            <a name="debugging"; href="matlab:edit Debugging.mlx;"><b>Debugging
+                                Code</b><br> <br>
+                                <img src = "https://user-images.githubusercontent.com/88841524/182221151-f8f8d8fd-11f4-4f36-93ad-532771bb6092.png" width="100"></a>
+                        </th>
+                            <td>
+                                <ul style="margin-top:5px; margin-bottom:10px">
+                                    <li> identify warning messages and locate and fix the problem. </li>
+                                    <li> locate and fix syntax errors. </li>
+                                    <li> recognize and isolate run-time errors. </li>
+                                </ul>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" style="text-align: center;">
+                            <a name="sharing"; href="matlab:edit SharingCode.mlx;"><b>Sharing
+                                Code</b> <br><br>
+                                <img src = "https://user-images.githubusercontent.com/88841524/182221119-d08869fb-a809-4f61-bc92-effcc22ce71b.png" width="100"> </a>
+                        </th>
+                            <td>
+                                <ul style="margin-top:5px; margin-bottom:10px">
+                                    <li> add scripts to a project. </li>
+                                    <li> clone a GitHub repository. </li>
+                                    <li> use the Compare tool to see differences between two versions of the
+                                        same live script. </li>
+                                </ul>
+                            </td>
+                    </tr>
+                </table>
+                <br>
+            </span>
+        </span>
+    </p><p>Copyright 2022 The MathWorks&#8482;, Inc.</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%% Programming: Organizing Data
-% 
+%% Programming: Structuring Code
+%
 % <html>
-% <span style="font-family:Arial">
-% <span style="font-size:12pt">
-% <h2> Information </h2>
-% This curriculum module contains interactive
-% <a href="https://www.mathworks.com/products/matlab/live-editor.html">MATLAB&reg; live scripts</a>
-% that teach fundamental concepts and basic terminology related to
-% programming computers. This module focuses on concepts and practices
-% related to working with data.
-% <br>
-% <br>
-% <a href=#module>Programming: Organizing Data</a> covers
-% <a href=#strings>textual</a> data,
-% <a href=#num>numerical</a> data, <a href=#memory>memory</a>, and
-% <a href=#data>data structures</a> including, arrays, structs, tables, and more.
-% Applications include sea surface temperature data and solar power generation data.
-% <br>
-% <br>
-% You can use these live scripts as demonstrations in lectures, class activities,
-% or interactive assignments outside of class. The module is divided into
-% four scripts organized by topic: textual data types, numeric data types, memory, and
-% storing data.
-% <br>
-% <br>
-% The instructions inside the live scripts will guide you through the exercises and activities.
-% Get started with each live script by running it one section at a time. To stop running the script
-% or a section midway (for example, when an animation is in progress), use the <img src="https://user-images.githubusercontent.com/88841524/182219991-17ef7bf9-369b-4463-8de6-9e440ca3bc9b.png" height="16" style="vertical-align:top"> Stop button in the
-% RUN section of the Live Editor tab in the MATLAB Toolstrip.
-% <br>
-% <br>
-% Solutions are available upon instructor request. If you would like to request solutions or have a question, contact the
-% <a href="mailto:onlineteaching@mathworks.com">MathWorks online teaching team</a>.
-% <br>
-% <br>
-% <h2> Related Courseware Modules </h2>
-% <ul>
-%     <li> <b>Fundamentals of Programming</b> available on <a href="https://github.com/MathWorks-Teaching-Resources/Fundamentals-of-Programming">
+%     <span style="font-family:Arial">
+%         <span style="font-size:12pt">
+%             <h2> Information </h2>
+%             This curriculum module contains interactive
+%             <a href="https://www.mathworks.com/products/matlab/live-editor.html">MATLAB&reg; live scripts</a>
+%             that teach fundamental concepts and basic terminology related to
+%             programming computers. This module focuses on organizing code into
+%             functions, describing, debugging, and sharing code.
+%             <br>
+%             <br>
+%             <a href=#module>Programming: Structuring Code</a> covers
+%             <a href=#functions>functions</a>, adding
+%             <a href=#comments>comments</a> to code, <a href=#debugging>debugging</a>, and
+%             <a href=#sharing>sharing</a> code.
+%             <br>
+%             <br>
+%             You can use these live scripts as lecture demonstrations, class activities,
+%             or interactive assignments outside class. The module is divided into
+%             four scripts organized by topic: functions, comments, debugging, and
+%             sharing code.
+%             <br>
+%             <br>
+%             The instructions inside the live scripts will guide you through the exercises and activities.
+%             Get started with each live script by running it one section at a time. To stop running the script
+%             or a section midway (for example, when an animation is in progress), use the <img src="https://user-images.githubusercontent.com/88841524/182219991-17ef7bf9-369b-4463-8de6-9e440ca3bc9b.png" height="16" style="vertical-align:top"> Stop button in the
+%             RUN section of the Live Editor tab in the MATLAB Toolstrip.
+%             <br>
+%             <br>
+%             If you find an issue or have a suggestion, email the MathWorks online teaching team at
+%             <a
+%                href="mailto:onlineteaching@mathworks.com">onlineteaching@mathworks.com</a>.
+%             <br>
+%             <br>
+%             <h2> Prerequisites </h2>
+%             These scripts assume familiarity with MATLAB and general programming knowledge
+%             at the level covered in the <a href="https://github.com/MathWorks-Teaching-Resources/Fundamentals-of-Programming">
+%             Fundamentals of Programming</a> interactive examples. The familiarity with MATLAB could
+%             also be acquired in <a href="https://www.mathworks.com/learn/tutorials/matlab-onramp.html">MATLAB
+%             Onramp</a>.
+%             <br>
+%             <br>
+%             <h2> Related Courseware Modules </h2>
+%             <ul>
+%                 <li> <b>Fundamentals of Programming</b> available on <a href="https://github.com/MathWorks-Teaching-Resources/Fundamentals-of-Programming">
 %         GitHub</a> or <a href="https://www.mathworks.com/matlabcentral/fileexchange/103225-fundamentals-of-programming"> 
 %              <img src="https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg">
 %              </a>
-%     <li><b>Programming: Structuring Code</b> available on <a href="https://github.com/MathWorks-Teaching-Resources/Programming-Structuring-Code">
-%              GitHub </a> or <a href="https://www.mathworks.com/matlabcentral/fileexchange/115905-programming-structuring-code">
-%              <img src="https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg">
-%              </a>   
-% </ul>
-% <h2> Prerequisites </h2>
-% These scripts assume familiarity with MATLAB and general programming knowledge
-% at the level covered in the <a href="https://www.mathworks.com/matlabcentral/fileexchange/103225-fundamentals-of-programming">
-% Fundamentals of Programming</a> interactive examples. You could also use <a href="https://www.mathworks.com/learn/tutorials/matlab-onramp.html">MATLAB
-% Onramp</a> as another resource to acquire familiarity with MATLAB.
-% <br>
-% <br>
-% <h2> Getting Started </h2>
-% <ol>
-%     <li>
-%         Ensure you have all the required products (listed below)
-%         installed. If you are missing a product, add it using the
-%         <a href="https://www.mathworks.com/products/matlab/add-on-explorer.html">
-%             Add-On Explorer.</a> To install an add-on, go to the <b>Home</b>
-%         tab and select <img src="https://user-images.githubusercontent.com/88841524/183099525-626986bc-328a-4e3a-8e5b-c1d0691ca291.png" style="margin:0px;" height=12> <b> Add-Ons > Get Add-Ons</b>.
-%     </li>
-%         <li>
-%             Get started with each topic by clicking the link in the first column of the table below to access the
-%             full script example. The instructions inside each live script will walk
-%             you through the live scripts and related functions.
-%         </li>
-% </ol>
-% <h2> Products </h2>
-%     MATLAB&reg; is used throughout. Tools from the Mapping Toolbox&trade;
-%     are used in <code>StoringData.mlx</code>,
-%     and tools from the Symbolic Math Toolbox&trade; are used in <code>Strings.mlx</code>.
-% <br>
-% <br>
-% <h2> <a name="module"; href="matlab: edit StoringData.mlx Memory.mlx Strings.mlx NumericDataTypes.mlx">Scripts</a> </h2>
-% <table border=1 style="margin-left:20px; cellpadding:15px;">
-%     <caption><h3>Organization of the Programming: Organizing Data Module</h3></caption>
-%     <tr>
-%         <th scope="col">Topic
-%         </th>
-%         <th scope="col">In this script, students will...
-%         </th>
-%     </tr>
-%     <tr>
-%         <th scope="row">
-%             <a name="strings"; href="matlab:edit Strings.mlx;"><b>Textual Data Types</b> 
-%              <br>
-%             <img src="https://user-images.githubusercontent.com/88841524/183101267-371312e2-22a9-44bb-9e5c-f72ebe13af21.png" width=150 style="margin-top:5px; margin-bottom:0px">
-%             </a>
-%         </th>              
-%         <td>
-%             <ul style="margin-top:5px; margin-bottom:10px">
-%                 <li> investigate the relationship between character arrays and Unicode values. </li>
-%                 <li> try building two-dimensional character arrays and string arrays. </li>
-%                 <li> format strings by concatenating,
-%                     modifying capitalization, reordering characters, extracting or replacing substrings, or
-%                     formatting textual data from numerical data.</li>
-%                 <li> extract the month from a regularly-formatted but randomly
-%                     generated sentence. </li>
-%             </ul>
-%         </td>
-%     </tr>
-%     <tr>
-%         <th scope="row">
-%             <a name="num"; href="matlab:edit NumericDataTypes.mlx;"><b>Numeric Data Types</b><br>
-%             <img src="https://user-images.githubusercontent.com/88841524/174635054-4fbe3c75-f719-4470-a8c6-7c49ea23d8e4.png" width=125 style="margin-top:5px; margin-bottom:0px"></a>
-%             </th>
-%         <td>
-%             <ul style="margin-top:5px; margin-bottom:10px">
-%                 <li> create an example illustrating the differences between floating point
-%                     arithmetic and symbolic arithmetic.</li>
-%                 <li> explore the results of mathematical operations involving mixed numeric data types. </li>
-%                 <li> identify the possible values of a 32-bit unsigned
-%                     integer.</li>
-%                 <li> use documentation to discover how to perform mathematical
-%                     computations in MATLAB. </li>
-%             </ul>
-%         </td> 
-%     </tr>
-%     <tr>
-%         <th scope="row">
-%             <a name="memory"; href="matlab:edit Memory.mlx;"><b>Memory</b><br>
-%             <img src="https://user-images.githubusercontent.com/88841524/174635161-981abbce-d712-4fc5-b950-4d2bef4fed17.png" width=125 style="margin-top:5px; margin-bottom:0px">
-%             </a>
-%         </th>
-%         <td>
-%             <ul style="margin-top:5px; margin-bottom:10px">
-%                 <li> determine how many bytes are required to store different integer
-%                     values. </li>
-%                 <li> compare the results of computation organized in memory-efficient and memory-inefficient ways. </li>
-%                 <li> apply understanding of memory to recognize efficient computational patterns such as pre-allocation. </li>
-%             </ul>
-%         </td>
-%     </tr>
-%     <tr>
-%         <th scope="row">
-%             <a name="data"; href="matlab:edit StoringData.mlx;"><b>Data Structures</b><br>
-%             <img src="https://user-images.githubusercontent.com/88841524/174635148-825bb0a6-f6f0-4ca1-bfb1-9b1ec522c64b.png" width=125 style="margin-top:5px; margin-bottom:0px"> </a>
-%             </th>
-%         <td>
-%             <ul style="margin-top:5px; margin-bottom:10px">
-%                 <li> read metadata to understand a dataset. </li>
-%                 <li> use arrays to store multidimensional data of the same type and access individual elements or sub-arrays using dimensional,
-%                     logical or linear indexing. </li>
-%                 <li> use tables to store linked sets of different types of data such as key/value sets and extract information as
-%                     tables, single variable arrays, or concatenated variable arrays.</li>
-%                 <li> use structure arrays to store linked data of
-%                     different types and sizes and use dot
-%                     notation to access fields within a structure array or
-%                     variables within a table.</li>
-%                 <li> recognize cell arrays and extract the data to other data structures. </li>
-%                 <li> clean data by interpolating missing values. </li>
-%                 <li> answer questions by analyzing data. </li>
-%                 <li> convert data between types and structures. </li>
-%             </ul>
-%         </td>
-%     </tr>
-% </table>
-% <br>
-% </span>
-% </span>
-% </html>
+%                 <li> <b>Programming: Organizing Data</b> available on <a
+%                 href="https://github.com/MathWorks-Teaching-Resources/Programming-Organizing-Data">
+%                 GitHub </a> or <a href
+%                 ="https://www.mathworks.com/matlabcentral/fileexchange/115900-programming-organizing-data"><img
+%                 src="https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg">
+%              </a>
+%             </ul> 
+%             <h2> Getting Started </h2>
+%             <ol>
+%                 <li>
+%                     Get started with each topic by clicking the link in the first column of the table below to access the
+%                     full script example.  </li>
+%                 <li>The instructions inside each live script will walk
+%                     you through the live scripts and related functions.
+%                 </li>
+%             </ol>
+%             <h2> Products </h2>
+%             MATLAB&reg;
+%             <br>
+%             <br>
+%             <h2> <a name="module"; style = "text-decoration: none; color: inherit">Scripts</a> </h2>
+%             <table border=1 style="margin-left:20px; cellpadding:15px;">
+%                 <caption><h3>Organization of the Programming: Structuring Code Module</h3></caption>
+%                 <tr>
+%                     <th scope="col"><a name="fullscripts"></a>Topic</th>
+%                     <th scope="col"> In this script, students will... </th>
+%                 </tr>
+%                 <tr>
+%                     <th scope="row" style="text-align: center;">
+%                         <a name="functions"; href="matlab:edit
+%                                                    Functions.mlx;"><b>Functions</b> <br><br>
+%                             <img src="https://user-images.githubusercontent.com/88841524/182221128-9bc17fa0-a5c7-46eb-b7b5-c4ea0c770904.png" width="100"> </a>
+%                     </th>
+%                         <td>
+%                             <ul style="margin-top:5px; margin-bottom:10px">
+%                                 <li> use mathematical functions to use MATLAB as a calculator. </li>
+%                                 <li> use the documentation to locate functions and determine how to use
+%                                     them.</li>
+%                                 <li> write simple functions with inputs, outputs, and side effects, and ensure the functions are on your MATLAB path.</li>
+%                                 <li> pass functions as arguments by using function handles. </li>
+%                             </ul>
+%                         </td>
+%                     </tr>
+%                     <tr>
+%                         <th scope="row" style="text-align: center;">
+%                             <a name="comments"; href="matlab:edit
+%                                                       CommentingCode.mlx;"><b>Commenting and Documenting Code</b><br><br>
+%                                 <img src="https://user-images.githubusercontent.com/88841524/182221375-2b18b9ca-75cb-4d39-8f4a-36877be20574.png" width="100"> </a>
+%                         </th>
+%                             <td>
+%                                 <ul style="margin-top:5px; margin-bottom:10px">
+%                                     <li> write comments and documentation for a self-defined function.</li>
+%                                     <li> select meaningful variable names and add code and
+%                                         documentation to an existing function.</li>
+%                                 </ul>
+%                             </td>
+%                     </tr>
+%                     <tr>
+%                         <th scope="row" style="text-align: center;">
+%                             <a name="debugging"; href="matlab:edit Debugging.mlx;"><b>Debugging
+%                                 Code</b><br> <br>
+%                                 <img src = "https://user-images.githubusercontent.com/88841524/182221151-f8f8d8fd-11f4-4f36-93ad-532771bb6092.png" width="100"></a>
+%                         </th>
+%                             <td>
+%                                 <ul style="margin-top:5px; margin-bottom:10px">
+%                                     <li> identify warning messages and locate and fix the problem. </li>
+%                                     <li> locate and fix syntax errors. </li>
+%                                     <li> recognize and isolate run-time errors. </li>
+%                                 </ul>
+%                             </td>
+%                     </tr>
+%                     <tr>
+%                         <th scope="row" style="text-align: center;">
+%                             <a name="sharing"; href="matlab:edit SharingCode.mlx;"><b>Sharing
+%                                 Code</b> <br><br>
+%                                 <img src = "https://user-images.githubusercontent.com/88841524/182221119-d08869fb-a809-4f61-bc92-effcc22ce71b.png" width="100"> </a>
+%                         </th>
+%                             <td>
+%                                 <ul style="margin-top:5px; margin-bottom:10px">
+%                                     <li> add scripts to a project. </li>
+%                                     <li> clone a GitHub repository. </li>
+%                                     <li> use the Compare tool to see differences between two versions of the
+%                                         same live script. </li>
+%                                 </ul>
+%                             </td>
+%                     </tr>
+%                 </table>
+%                 <br>
+%             </span>
+%         </span>
+%     </html>
 % 
 % Copyright 2022 The MathWorks(TM), Inc.
+
 ##### SOURCE END #####
 --></body></html>
