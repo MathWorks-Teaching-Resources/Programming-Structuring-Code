@@ -11,7 +11,7 @@ on:
 jobs:
   test:
     strategy: 
-      fail-fast: false
+      fail-fast: true
       matrix:
         MATLABVersion: [R2021b,R2023a,R2023b]
     runs-on: ubuntu-latest
