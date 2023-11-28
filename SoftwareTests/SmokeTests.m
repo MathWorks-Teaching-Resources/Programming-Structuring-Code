@@ -58,10 +58,15 @@ classdef SmokeTests < matlab.unittest.TestCase
                     fprintf(fid,"%s,%s,%s,%s\n",release_version,myFiles(kTest),"passed",testCase.results.Time(kTest));
                 catch ME
                     testCase.results.Time(kTest) = toc;
-                    disp("Failed " + myFiles(kTest) + " because " + ...
+                    if ME.message == "Unknown service"
+                        disp("Expected error: no doc availabile.")
+                        testCase.results.Passed(kTest) = true;
+                    else
+                        disp("Failed " + myFiles(kTest) + " because " + ...
                         newline + ME.message)
-                    testCase.results.Message(kTest) = ME.message;
-                    fprintf(fid,"%s,%s,%s,%s\n",release_version,myFiles(kTest),"failed",testCase.results.Time(kTest));
+                        testCase.results.Message(kTest) = ME.message;
+                        fprintf(fid,"%s,%s,%s,%s\n",release_version,myFiles(kTest),"failed",testCase.results.Time(kTest));
+                    end
                 end
                 clearvars -except kTest testCase myFiles fid
             end

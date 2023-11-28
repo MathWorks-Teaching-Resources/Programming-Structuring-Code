@@ -44,6 +44,23 @@ jobs:
           name: TestResults
           path: ./SoftwareTests/TestResults_${{ matrix.MATLABVersion }}.txt
 
+  badge:
+    if: ${{ always() }}
+    needs: [test]
+    strategy: 
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps: 
+
+      # Checks-out your repository
+      - uses: actions/checkout@v3
+      
+      # Sets up R2023b
+      - name: Setup MATLAB
+        uses: matlab-actions/setup-matlab@v1
+        with:
+          release: R2023b
+
       # Download the test results from artifact
       - name: Download TestResults
         uses: actions/download-artifact@v2.1.1
@@ -55,7 +72,7 @@ jobs:
       - name: Run CreateBadge
         uses: matlab-actions/run-command@v1
         with:
-          command: openProject(pwd); results = runtests(fullfile("SoftwareTests","CreateBadge.m"));
+          command: openProject(pwd); CreateTestBadge;
 
       # Commit the JSON for the MATLAB releases badge 
       - name: Commit changed files
@@ -63,7 +80,6 @@ jobs:
         run: |
           git config user.name "${{ github.workflow }} by ${{ github.actor }}"
           git config user.email "<>"
-          git add Images/TestedWith.json
           git commit Images/TestedWith.json -m "Update CI badges ${{  github.ref_name }}"
           git fetch
           git push
