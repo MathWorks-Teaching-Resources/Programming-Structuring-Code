@@ -47,5 +47,3 @@ codegen/
 # Project settings
 Utilities/ProjectSettings.mat
 
-# Test results
-SoftwareTests/TestResults_*
