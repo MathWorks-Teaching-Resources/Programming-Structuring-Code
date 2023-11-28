@@ -1,19 +1,19 @@
 % Run these tests with runMyTests
 % All tests so far are on code expected to run without errors
-% If/when we end up with a version that _should_ error, 
+% If/when we end up with a version that _should_ error,
 % please add it to this set of examples
 classdef SmokeTests < matlab.unittest.TestCase
-    
+
     properties
         rootProject
         results
     end
 
 
-     methods (TestClassSetup)
+    methods (TestClassSetup)
 
         function setUpPath(testCase)
-            
+
             try
                 project = currentProject;
                 testCase.rootProject = project.RootFolder;
@@ -21,7 +21,7 @@ classdef SmokeTests < matlab.unittest.TestCase
             catch
                 error("Load project prior to run tests")
             end
-            
+
             testCase.log("Running in " + version)
 
         end % function setUpPath
@@ -58,15 +58,10 @@ classdef SmokeTests < matlab.unittest.TestCase
                     fprintf(fid,"%s,%s,%s,%s\n",release_version,myFiles(kTest),"passed",testCase.results.Time(kTest));
                 catch ME
                     testCase.results.Time(kTest) = toc;
-                    if ME.message == "Unknown service"
-                        disp("Expected error: no doc availabile.")
-                        testCase.results.Passed(kTest) = true;
-                    else
-                        disp("Failed " + myFiles(kTest) + " because " + ...
+                    disp("Failed " + myFiles(kTest) + " because " + ...
                         newline + ME.message)
-                        testCase.results.Message(kTest) = ME.message;
-                        fprintf(fid,"%s,%s,%s,%s\n",release_version,myFiles(kTest),"failed",testCase.results.Time(kTest));
-                    end
+                    testCase.results.Message(kTest) = ME.message;
+                    fprintf(fid,"%s,%s,%s,%s\n",release_version,myFiles(kTest),"failed",testCase.results.Time(kTest));
                 end
                 clearvars -except kTest testCase myFiles fid
             end
@@ -85,4 +80,8 @@ classdef SmokeTests < matlab.unittest.TestCase
 
     end % methods (TestClassTeardown)
 
+end
+
+function doc(arg)
+disp("doc " + string(arg))
 end
