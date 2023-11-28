@@ -72,7 +72,7 @@ jobs:
       - name: Run CreateBadge
         uses: matlab-actions/run-command@v1
         with:
-          command: openProject(pwd); CreateTestBadge;
+          command: openProject(pwd); CreateBadge;
 
       # Commit the JSON for the MATLAB releases badge 
       - name: Commit changed files
