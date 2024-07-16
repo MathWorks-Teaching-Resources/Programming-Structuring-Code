@@ -53,22 +53,22 @@ MATLAB®
 
 <a name="H_E8C62B23"></a>
 # Scripts
-## [**Functions.mlx**](https://matlab.mathworks.com/open/github/v1?repo=MathWorks-Teaching-Resources/Programming-Structuring-Code&project=StructuringCode.prj&file=Functions.mlx) 
+## [**Functions.mlx**](https://matlab.mathworks.com/open/github/v1?repo=MathWorks-Teaching-Resources/Programming-Structuring-Code&project=StructuringCode.prj&file=Scripts/Functions.mlx) 
 | `Functions` | **In this script, students will...** | **Summary**  |
 | :-- | :-- | :-- |
 | <img src="Images/Refactor.png" width="171" alt="Refactor.png"> |<br>-  use mathematical functions to use MATLAB as a calculator. <br>-  use the documentation to locate functions and determine how to use them. <br>-  write simple functions with inputs, outputs, and side effects, and ensure the functions are on your MATLAB path. <br>-  pass functions as arguments by using function handles. | Organizing code into functions improves the readability, reusability, and ease of testing. This script addresses built-in functions, refactoring code to create functions, local functions, functions defined in their own files, programmatic scope and the MATLAB path, and how to pass functions as arguments to other functions.  |
 
-## [**Debugging.mlx**](https://matlab.mathworks.com/open/github/v1?repo=MathWorks-Teaching-Resources/Programming-Structuring-Code&project=StructuringCode.prj&file=Debugging.mlx) 
+## [**Debugging.mlx**](https://matlab.mathworks.com/open/github/v1?repo=MathWorks-Teaching-Resources/Programming-Structuring-Code&project=StructuringCode.prj&file=Scripts/Debugging.mlx) 
 | `Debugging` | **In this script, students will...** | **Summary**  |
 | :-- | :-- | :-- |
 | <img src="Images/StoppedAtBreakpoint.png" width="171" alt="StoppedAtBreakpoint.png"> |<br>-  identify warning messages and locate and fix the problem. <br>-  locate and fix syntax errors. <br>-  recognize and isolate run-time errors. | Everyone makes mistakes when coding or interacting with computer programs, but you can fix these mistakes. This script introduces the MATLAB Code Analyzer, errors, warnings, breakpoints, stepping, and other tools for minimizing errors as well as identifying and removing bugs from your programs.  |
 
-## [**CommentingCode.mlx**](https://matlab.mathworks.com/open/github/v1?repo=MathWorks-Teaching-Resources/Programming-Structuring-Code&project=StructuringCode.prj&file=CommentingCode.mlx) 
+## [**CommentingCode.mlx**](https://matlab.mathworks.com/open/github/v1?repo=MathWorks-Teaching-Resources/Programming-Structuring-Code&project=StructuringCode.prj&file=Scripts/CommentingCode.mlx) 
 | `Commenting Code` | **In this script, students will...** | **Summary**  |
 | :-- | :-- | :-- |
 | <img src="Images/Comment.png" width="171" alt="Comment.png"> |<br>-  write comments and documentation for a self-defined function. <br>-  select meaningful variable names and add code and documentation to an existing function. | Clearly documenting and communicating your thinking is essential to program with others or even your future self. This script addresses why and how you should document and comment your code.  |
 
-## [**SharingCode.mlx**](https://matlab.mathworks.com/open/github/v1?repo=MathWorks-Teaching-Resources/Programming-Structuring-Code&project=StructuringCode.prj&file=SharingCode.mlx) 
+## [**SharingCode.mlx**](https://matlab.mathworks.com/open/github/v1?repo=MathWorks-Teaching-Resources/Programming-Structuring-Code&project=StructuringCode.prj&file=Scripts/SharingCode.mlx) 
 | `Sharing Code` | **In this script, students will...** | **Summary**  |
 | :-- | :-- | :-- |
 | <img src="Images/CodeCompare.png" width="171" alt="CodeCompare.png"> |<br>-  add scripts to a project. <br>-  clone a GitHub repository. <br>-  use the Compare tool to see differences between two versions of the same live script | Writing code for yourself is the first step, but when you create something useful or interesting, you also need to know how to share your work with others. This script offers a brief introduction to sharing your code with others.  |
