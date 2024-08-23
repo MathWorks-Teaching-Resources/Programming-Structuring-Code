@@ -1,4 +1,3 @@
-
 <a name="T_DEF03274"></a>
 # <span style="color:rgb(213,80,0)">Programming: Structuring Code</span>
 <a name="H_053613DF"></a>
