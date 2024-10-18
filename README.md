@@ -47,7 +47,7 @@ Ensure you have all the required products (listed below) installed. If you need 
 
 ## Products
 
-MATLAB®
+MATLAB® is used throughout, and the Symbolic Math Toolbox™ is used for the ShowTaylor example in Functions.mlx.
 
 # Scripts
 ## [**Functions.mlx**](https://matlab.mathworks.com/open/github/v1?repo=MathWorks-Teaching-Resources/Programming-Structuring-Code&project=StructuringCode.prj&file=Scripts/Functions.mlx) 
@@ -106,6 +106,6 @@ Or feel free to explore our other [modular courseware content](https://www.mathw
 Looking for more? Find an issue? Have a suggestion? Please contact the [MathWorks teaching resources team](mailto:%20onlineteaching@mathworks.com). If you want to contribute directly to this project, you can find information about how to do so in the [CONTRIBUTING.md](https://github.com/MathWorks-Teaching-Resources/Programming-Structuring-Code/blob/release/CONTRIBUTING.md) page on GitHub.
 
 
- *©* Copyright 2023 The MathWorks™, Inc
+ *©* Copyright 2024 The MathWorks™, Inc
 
 
