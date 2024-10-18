@@ -47,3 +47,5 @@ codegen/
 # Project settings
 Utilities/ProjectSettings.mat
 
+# GitLab page folder
+public/

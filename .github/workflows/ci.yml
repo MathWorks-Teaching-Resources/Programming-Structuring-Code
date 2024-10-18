@@ -8,41 +8,60 @@ on:
     branches: [ release ]
   workflow_dispatch:
 
+# Add permission to write GitHub pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   test:
     strategy: 
-      fail-fast: true
+      fail-fast: false
       matrix:
-        MATLABVersion: [R2021b,R2023a,R2023b]
+        MATLABVersion: [R2024a,R2024b]
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      # Checks-out your repository
+      - uses: actions/checkout@v4
       
-      # Sets up MATLAB on the GitHub Actions runner
+      # Sets up a display server
+      - name: Start display server
+        if: ${{ always() }}
+        run: |
+          sudo apt-get install xvfb
+          Xvfb :99 &
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+      
+      # Sets up MATLAB
       - name: Setup MATLAB
-        uses: matlab-actions/setup-matlab@v1
+        uses: matlab-actions/setup-matlab@v2
         with:
           release: ${{ matrix.MATLABVersion }}
+          products: # Simulink Statistics_and_Machine_Learning_Toolbox
+          # List required products above in the format shown (and uncomment them)
+          # List of product strings:
+          # Simulink
+          # Statistics_and_Machine_Learning_Toolbox
+          # Simulink_Coder
+          # Econometrics_Toolbox
+          # Deep_Learning_Toolbox
 
-      # Run SmokeTests
+
+      # Run all the tests
       - name: Run SmokeTests
-        uses: matlab-actions/run-command@v1
+        uses: matlab-actions/run-command@v2
         with:
-          command: openProject(pwd); setenv('EDITOR','emacs'); results = runtests(fullfile("SoftwareTests","SmokeTests.m")); assertSuccess(results); 
-     
-      # Run FunctionTests
-      - name: Run FunctionTests
-        uses: matlab-actions/run-command@v1
-        with:
-          command: openProject(pwd); results = runtests(fullfile("SoftwareTests","FunctionTests.m")); assertSuccess(results); 
+          command: openProject(pwd); RunAllTests; 
 
       # Upload the test results as artifact
       - name: Upload TestResults
-        uses: actions/upload-artifact@v3.1.3
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
         with:
-          name: TestResults
-          path: ./SoftwareTests/TestResults_${{ matrix.MATLABVersion }}.txt
+          name: TestResults_${{ matrix.MATLABVersion }}
+          path: ./public/*
+          overwrite: true
 
   badge:
     if: ${{ always() }}
@@ -53,26 +72,38 @@ jobs:
     steps: 
 
       # Checks-out your repository
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       # Sets up R2023b
       - name: Setup MATLAB
-        uses: matlab-actions/setup-matlab@v1
+        uses: matlab-actions/setup-matlab@v2
         with:
-          release: R2023b
-
+          release: R2024b
+  
       # Download the test results from artifact
-      - name: Download TestResults
-        uses: actions/download-artifact@v2.1.1
+      - name: Download All TestResults
+        uses: actions/download-artifact@v4
         with:
-          name: TestResults
-          path: ./SoftwareTests/
-
+          path: public
+          pattern: TestResults_*
+          merge-multiple: true
+          
       # Create the test results badge
-      - name: Run CreateBadge
-        uses: matlab-actions/run-command@v1
+      - name: Run PostSmokeTest
+        uses: matlab-actions/run-command@v2
         with:
-          command: openProject(pwd); CreateBadge;
+          command: openProject(pwd); PostSmokeTest;
+      
+      # Deploy reports to GitHub pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       # Commit the JSON for the MATLAB releases badge 
       - name: Commit changed files
@@ -80,6 +111,8 @@ jobs:
         run: |
           git config user.name "${{ github.workflow }} by ${{ github.actor }}"
           git config user.email "<>"
+          git pull
+          git add Images/TestedWith.json
           git commit Images/TestedWith.json -m "Update CI badges ${{  github.ref_name }}"
           git fetch
           git push
