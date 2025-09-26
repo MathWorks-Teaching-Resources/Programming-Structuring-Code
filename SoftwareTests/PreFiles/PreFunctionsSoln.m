@@ -1,6 +1,6 @@
 %  Pre-run script for FunctionsSoln.mlx
 % ---- Known Issues     -----
-if isMATLABReleaseOlderThan("R2025b")
+if isMATLABReleaseOlderThan("R2025a")
     KnownIssuesID = "MATLAB:UndefinedFunction";
 else
     KnownIssuesID = "MATLAB:math:mustBeFloat";
