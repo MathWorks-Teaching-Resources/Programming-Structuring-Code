@@ -1,6 +1,10 @@
 %  Pre-run script for FunctionsSoln.mlx
 % ---- Known Issues     -----
-KnownIssuesID = "MATLAB:UndefinedFunction";
+if isMATLABReleaseOlderThan("R2025b")
+    KnownIssuesID = "MATLAB:UndefinedFunction";
+else
+    KnownIssuesID = "MATLAB:math:mustBeFloat";
+end
 % ---- Pre-run commands -----
  
 addpath(genpath(fullfile(currentProject().RootFolder,...
