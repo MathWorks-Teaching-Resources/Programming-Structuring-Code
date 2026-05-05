@@ -5,3 +5,10 @@ KnownIssuesID = "";
  
 addpath(genpath(fullfile(currentProject().RootFolder,...
     "InstructorResources","Solutions","FunctionLibrarySoln")))
+
+edit = @(str)MyEdit(str);
+
+function MyEdit(str)
+assert(exist(str,"file"))
+disp("Edit the file " + str)
+end
