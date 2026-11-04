@@ -1,4 +1,5 @@
 <a id="T_DEF03274"></a>
+
 # <span style="color:rgb(213,80,0)">Programming: Structuring Code</span>
 <a id="H_053613DF"></a>
 
@@ -83,7 +84,7 @@ MATLAB® is used throughout, and the Symbolic Math Toolbox™ is used for the `S
 ||||
 | :-- | :-- | :-- |
 |  | **In this script, students will...** <br>  | **Summary** <br>   |
-| <img src="Images/CodeCompare.png" width="171" alt="CodeCompare.png"> <br>  | $\bullet$ add scripts to a project. <br> $\bullet$ clone a GitHub repository. <br> $\bullet$ use the Compare tool to see differences between two versions of the same live script  <br>  | Writing code for yourself is the first step, but when you create something useful or interesting, you also need to know how to share your work with others. This script offers a brief introduction to sharing your code with others. <br>   |
+| <img src="Images/CodeCompare.png" width="171" alt="CodeCompare.png"> <br>  | $\bullet$ add scripts to a project. <br> $\bullet$ recognize basic vocabulary around using Git for source control <br> $\bullet$ use MATLAB to clone, pull, push, and commit Git repositories <br> $\bullet$ use the Compare tool to see differences between two versions of the same live script  <br>  | Writing code for yourself is the first step, but when you create something useful or interesting, you also need to know how to share your work with others. This script offers a brief introduction to sharing your code with others. <br>   |
 
 <a id="H_F61733D7"></a>
 
